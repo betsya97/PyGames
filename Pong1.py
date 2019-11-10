@@ -31,9 +31,14 @@ paddle_b.goto(350,0)
 #ball
 ball = turtle.Turtle()
 ball.speed(0)
-ball.shape("square")
+ball.shape("square") 
+ball.color("white")
 ball.penup()
-ball.goto(0,0) 
+ball.goto(0,0)  
+#ball moves by two pixels
+ball.dx = 2
+ball.dy = 2 
+
 
 #Functions 
 def paddle_a_up(): 
@@ -61,12 +66,16 @@ wn.listen()
 wn.onkeypress(paddle_a_up,"w") 
 wn.onkeypress(paddle_a_down,"s") 
 
-wn.onkeypress(paddle_b_down,"Up") 
+wn.onkeypress(paddle_b_up,"Up") 
 wn.onkeypress(paddle_b_down,"Down") 
 
 
 #Main Game Loop 
 while True: 
-    wn.update() 
+    wn.update()  
+    
+    #move the ball, it goes out of the screen 
+    ball.setx(ball.xcor()+ball.dx) 
+    ball.sety(ball.ycor()+ball.dy) 
 
     
