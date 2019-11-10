@@ -29,7 +29,11 @@ paddle_b.penup()
 paddle_b.goto(350,0) 
 
 #ball
-paddle_b = turtle.Turtle()
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("square")
+ball.penup()
+ball.goto(0,0)
 
 #Main Game Loop 
 while True: 
