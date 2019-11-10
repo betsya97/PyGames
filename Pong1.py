@@ -76,6 +76,24 @@ while True:
     
     #move the ball, it goes out of the screen 
     ball.setx(ball.xcor()+ball.dx) 
-    ball.sety(ball.ycor()+ball.dy) 
-
+    ball.sety(ball.ycor()+ball.dy)  
     
+    #bounce off top border
+    if ball.ycor() > 290: 
+        ball.sety(290) 
+        ball.dy *= -1 
+
+    #bounce off bottom border
+    if ball.ycor() < -290: 
+        ball.sety(-290) 
+        ball.dy *= -1 
+
+    #bouce off left border  
+    if ball.xcor() > 390: 
+        ball.goto(0, 0)
+        ball.dx *= -1
+        
+    #bouce off right border 
+    if ball.xcor() < -390: 
+        ball.goto(0, 0)
+        ball.dx *= -1
