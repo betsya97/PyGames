@@ -10,6 +10,11 @@ wn.setup(width = 800, height = 600)
  #stops the window from refreshing
 wn.tracer(0)
 
+#score
+score_a = 0
+score_b = 0 
+
+
 #paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
@@ -47,9 +52,6 @@ pen.penup()
 pen.hideturtle() 
 pen.goto(0,260) 
 pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "normal"))
-
-
-
 
 #Functions 
 def paddle_a_up(): 
@@ -103,11 +105,14 @@ while True:
     if ball.xcor() > 390: 
         ball.goto(0, 0)
         ball.dx *= -1
+        score_a += 1
         
     #bouce off right border 
     if ball.xcor() < -390: 
         ball.goto(0, 0)
         ball.dx *= -1 
+        score_b += 1
+
     #Paddle and Ball Collisions 
     if (ball.xcor() > 340 and ball.xcor()< 350) and (ball.ycor() < paddle_b.ycor()+40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
